@@ -67,6 +67,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterController: {fileID: 2104629892941413879}
   movespeed: 5
+  mousespeed: 5
+  maxangle: 90
+  minangle: -180
 --- !u!1 &2104629893233252653
 GameObject:
   m_ObjectHideFlags: 0

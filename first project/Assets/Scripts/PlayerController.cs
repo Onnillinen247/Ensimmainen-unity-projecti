@@ -7,9 +7,10 @@ public class PlayerController : MonoBehaviour
     public CharacterController characterController;
     public float movespeed = 5;
     public float mousespeed = 5;
-
-    private float mousevertical = 0;
+    public float maxangle = 70f;
+    public float minangle = -70f;
     private float mousehorizontal = 0;
+    private float mousevertical = 0;
 
    
     // Start is called before the first frame update
@@ -21,9 +22,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousevertical += Input.GetAxis("Mouse X") * mousespeed * 1;
-        mousehorizontal += Input.GetAxis("Mouse Y") * mousespeed * 1;
-        Camera.main.transform.localRotation = Quaternion.Euler(mousehorizontal, mousevertical,0);
+
+        mousehorizontal += Input.GetAxis("Mouse X") * mousespeed * 1;
+        mousevertical -= Input.GetAxis("Mouse Y") * mousespeed * 1;
+        mousevertical = Mathf.Clamp(mousevertical,minangle,maxangle);
+        Camera.main.transform.localRotation = Quaternion.Euler(mousevertical,mousehorizontal ,0);
 
 
 
@@ -31,6 +34,9 @@ public class PlayerController : MonoBehaviour
         float sidemove = Input.GetAxis("Horizontal");
 
         Vector3 direction = new Vector3 (sidemove,0,forwardmove);
+
+        direction = Camera.main.transform.rotation * direction;
+
         characterController.SimpleMove(direction * Time.deltaTime * movespeed );
     }
 }

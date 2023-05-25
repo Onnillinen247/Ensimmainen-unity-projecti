@@ -5343,6 +5343,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2104629892941413878, guid: 6385d88aa3ae81649a8121a81e32c4a2,
         type: 3}
+      propertyPath: maxangle
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104629892941413878, guid: 6385d88aa3ae81649a8121a81e32c4a2,
+        type: 3}
+      propertyPath: minangle
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2104629892941413878, guid: 6385d88aa3ae81649a8121a81e32c4a2,
+        type: 3}
       propertyPath: movespeed
       value: 200
       objectReference: {fileID: 0}
